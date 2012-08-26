@@ -1,0 +1,17 @@
+<traits>
+	<trait name="Large" atk="5" def="0" agi="-3" code="k1h4"/>
+	<trait name="Claws" atk="3" def="0" agi="0" code="hr24"/>
+	<trait name="Teeth" atk="1" def="0" agi="0" code="irhw"/>
+	<trait name="Arms" atk="5" def="0" agi="-2" code="4355"/>
+	<trait name="Venom" atk="7" def="-1" agi="0" code="ui98"/>
+	<trait name="Scales" atk="0" def="5" agi="-2" code="89gy"/>
+	<trait name="Shell" atk="0" def="3" agi="-1" code="859h"/>
+	<trait name="Camo" atk="-1" def="2" agi="0" code="5839"/>
+	<trait name="Horns" atk="0" def="2" agi="-1" code="iii5"/>
+	<trait name="Spikes" atk="-1" def="3" agi="0" code="995f"/>
+	<trait name="Wings" atk="-1" def="0" agi="7" code="u8t3"/>
+	<trait name="Small" atk="0" def="0" agi="5" code="9i98"/>
+	<trait name="FourLegs" atk="0" def="-1" agi="3" code="3244"/>
+	<trait name="Bipedal" atk="0" def="-1" agi="2" code="n1hm"/>
+	<trait name="Tail" atk="0" def="0" agi="1" code="tail"/>	
+</traits>
