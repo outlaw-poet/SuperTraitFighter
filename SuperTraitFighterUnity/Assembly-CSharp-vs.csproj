@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Behaviors\PlayerPeas.cs" />
      <Compile Include="Assets\Behaviors\TitleBehavior.cs" />
      <Compile Include="Assets\Behaviors\battleGameBehaviors.cs" />
      <Compile Include="Assets\Behaviors\peaBehavior.cs" />
