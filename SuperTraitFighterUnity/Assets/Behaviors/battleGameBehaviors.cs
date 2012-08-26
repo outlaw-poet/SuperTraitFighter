@@ -2,14 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
-using System.Xml.Linq;
+//using System.Xml.Linq;
 using System.Linq;
 
 public class battleGameBehaviors : MonoBehaviour {
-	public XElement traitFile;
+	//public XElement traitFile;
 	// Use this for initialization
 	void Start () {
-		traitFile = XElement.Load("TraitFile.xml");
+		//traitFile = XElement.Load("TraitFile.xml");
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,13 @@ public class battleGameBehaviors : MonoBehaviour {
 		
 	}
 	
+	public GUIStyle healthBar; 
+	
 	void OnGui(){
+		float friendlyHealth = 200;
+		GUI.Box( new Rect(1, 1, friendlyHealth, 20),"", healthBar);
+		float enemyHealth = 200;
+		GUI.Box( new Rect(1, 959 - friendlyHealth, enemyHealth, 20),"", healthBar);
 	}
 	
 	public int compareArmyValue(ArmyTraits one, ArmyTraits two){
@@ -46,7 +52,7 @@ public class Trait{
 
 public class ArmyTraits{
 	public List<Trait> traitCollection = new List<Trait>();
-	public ArmyTraits(string code, XElement traitFile){
+	public ArmyTraits(string code, object traitFile){
 		for (int i = 0; i < (code.Length - 4) ; i += 4){
 			string codeTest = code.Substring(i, 4);
 			//what the fuck, load the goddamn variables from the xml file!!!
