@@ -18,6 +18,7 @@ public GameObject prefabPeaClone; // drag/drop a reference to the object.
 int randStep;
 	// Use this for initialization
 void Awake () {
+	randStep = 0;
 	int friendlyHealth = 5;
 	CharacterController = gameObject.GetComponent("CharacterController") as CharacterController;
 	for (int i = 0; i<  friendlyHealth; i++){

@@ -18,7 +18,9 @@ public GameObject prefabEnemyPeaClone; // drag/drop a reference to the object.
 int randStep;
 	// Use this for initialization
 void Awake () {
+	randStep = 0;
 	int friendlyHealth = 5;
+	CharacterController = gameObject.GetComponent("CharacterController") as CharacterController;
 	for (int i = 0; i<  friendlyHealth; i++){
 		GameObject newThing = (GameObject) GameObject.Instantiate(prefabEnemyPeaClone);
 		newThing.transform.parent = gameObject.transform;
@@ -42,7 +44,7 @@ void Update () {
 					x = y = z = 0;
 					break;
 				case 2:
-					x += 1;
+					//x += 1;
 					break;
 				case 3:
 					//y += 1;
