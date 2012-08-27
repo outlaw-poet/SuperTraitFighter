@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class TitleBehavior : MonoBehaviour {
-
+	static string code = "";
 	// Use this for initialization
 	void Start () {
 		//wow, we can't do anything at all without some state!
@@ -19,6 +19,7 @@ public class TitleBehavior : MonoBehaviour {
 
 		// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
 		if(GUI.Button(new Rect(520,140,80,20), "Generate")) {
+			code = "tail";
 			Application.LoadLevel(2);
 		}
 
