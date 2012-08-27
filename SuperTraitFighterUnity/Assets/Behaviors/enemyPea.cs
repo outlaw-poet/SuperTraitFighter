@@ -35,6 +35,9 @@ void Update () {
 		randStep++;		
 		if (randStep > 50){
 			randStep = 0;
+			if (gameObject.transform.position.x != 10){
+				gameObject.transform.position = new Vector3(10, gameObject.transform.position.y + 1, gameObject.transform.position.z);
+			}
 			int x = 0;
 			int y = 0;
 			int z = 0;			
@@ -74,11 +77,11 @@ processMovement();
 void checkMovement(){
 	VerticalVelocity = MoveVector.y;
 	MoveVector = Vector3.zero;
-	MoveVector += new Vector3(-1,0,0);
+	MoveVector += new Vector3(1f,0,0);
 }
 
 void HandleActionInput(){
-	if(Random.Range(1,20) == 1){
+	if(Random.Range(1,40) == 1){
 	jump();
 		}
 	}

@@ -18,16 +18,17 @@ public class battleGameBehaviors : MonoBehaviour {
 	}
 	
 	void Awake(){
-		
+		float friendlyHealth = 200;
+		GUI.Box( new Rect(1, 1, friendlyHealth, 20),friendlyHealthBar);
+		float enemyHealth = 200;
+		GUI.Box( new Rect(1, 959 - friendlyHealth, enemyHealth, 20), enemyHealthBar);
 	}
 	
-	public GUIStyle healthBar; 
+	public GUIContent friendlyHealthBar;
+	public GUIContent enemyHealthBar;
 	
 	void OnGui(){
-		float friendlyHealth = 200;
-		GUI.Box( new Rect(1, 1, friendlyHealth, 20),"", healthBar);
-		float enemyHealth = 200;
-		GUI.Box( new Rect(1, 959 - friendlyHealth, enemyHealth, 20),"", healthBar);
+	
 	}
 	
 	public int compareArmyValue(ArmyTraits one, ArmyTraits two){

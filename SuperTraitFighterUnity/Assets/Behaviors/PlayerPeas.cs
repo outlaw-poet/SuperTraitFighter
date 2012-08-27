@@ -33,11 +33,16 @@ void Awake () {
 // Update is called once per frame
 void Update () {
 		randStep++;		
-		if (randStep > 10){
+		if (randStep > 20){
 			randStep = 0;
+			//reset on x coordinate in case of jitter
+			if (gameObject.transform.position.x != 10){
+				gameObject.transform.position = new Vector3(10, gameObject.transform.position.y + 1, gameObject.transform.position.z);
+			}
 			int x = 0;
 			int y = 0;
 			int z = 0;			
+			//let the clones jiggle a bit randomly
 			foreach (GameObject clone in peaClones){
 				switch (Random.Range(1,6)){
 				case 1:
