@@ -15,9 +15,13 @@ public ArrayList peaClones = new ArrayList();
 	
 public CharacterController CharacterController;
 public GameObject prefabPeaClone; // drag/drop a reference to the object.
+public GameObject enemy;
+
 int randStep;
 	// Use this for initialization
 void Awake () {
+		won = false;
+		lost = false;
 	randStep = 0;
 	int friendlyHealth = 5;
 	CharacterController = gameObject.GetComponent("CharacterController") as CharacterController;
@@ -29,9 +33,28 @@ void Awake () {
 		peaClones.Add(newThing);
 	}
 }
+	public static bool won = false;
+void triggerWin(){
+		
+	}
+	
+	public static bool lost = false;
+	void triggerLost(){
+		
+	}
 
 // Update is called once per frame
 void Update () {
+		if (Vector3.Distance(gameObject.transform.position, enemy.transform.position) < 5){
+			int result = battleGameBehaviors.compareArmyValue(new battleGameBehaviors.ArmyTraits(TitleBehavior.code, battleGameBehaviors.traitFile), new battleGameBehaviors.ArmyTraits("everything", battleGameBehaviors.traitFile));
+			if (result > 0){
+				triggerWin();
+			}
+			else{
+				triggerLost();
+			}
+			Application.LoadLevel(0);
+		}
 		randStep++;		
 		if (randStep > 20){
 			randStep = 0;

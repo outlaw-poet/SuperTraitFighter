@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class TitleBehavior : MonoBehaviour {
-	static string code = "";
+	public static string code = "";
 	// Use this for initialization
 	void Start () {
 		//wow, we can't do anything at all without some state!

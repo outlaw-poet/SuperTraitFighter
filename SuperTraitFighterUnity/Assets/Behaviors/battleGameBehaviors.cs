@@ -6,7 +6,7 @@ using System.Xml;
 using System.Linq;
 
 public class battleGameBehaviors : MonoBehaviour {
-	//public XElement traitFile;
+	public static object traitFile;
 	// Use this for initialization
 	void Start () {
 		//traitFile = XElement.Load("TraitFile.xml");
@@ -16,23 +16,26 @@ public class battleGameBehaviors : MonoBehaviour {
 	void Update () {
 	
 	}
-	
-	void Awake(){
-		float friendlyHealth = 200;
-		GUI.Box( new Rect(1, 1, friendlyHealth, 20),friendlyHealthBar);
+			float friendlyHealth = 200;
+		
 		float enemyHealth = 200;
-		GUI.Box( new Rect(1, 959 - friendlyHealth, enemyHealth, 20), enemyHealthBar);
+	void Awake(){
+
+		
 	}
 	
 	public GUIContent friendlyHealthBar;
 	public GUIContent enemyHealthBar;
 	
 	void OnGui(){
-	
+		GUI.Box( new Rect(1, 1, friendlyHealth, 20),friendlyHealthBar);
+		GUI.Box( new Rect(1, 959 - friendlyHealth, enemyHealth, 20), enemyHealthBar);
+		if (PlayerPeas.won)GUI.Box( new Rect(200, 200, 500, 300), "WIN");
+		if (PlayerPeas.lost)GUI.Box( new Rect(200, 200, 500, 300), "LOST");
 	}
 	
-	public int compareArmyValue(ArmyTraits one, ArmyTraits two){
-		return 0;
+	public static int compareArmyValue(ArmyTraits one, ArmyTraits two){
+		return Random.Range(1,5);
 	}
 
 
