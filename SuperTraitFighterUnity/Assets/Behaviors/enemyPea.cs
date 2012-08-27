@@ -14,13 +14,13 @@ public float VerticalVelocity {get; set;}
 public ArrayList peaClones = new ArrayList();
 	
 public CharacterController CharacterController;
-public GameObject prefabPeaClone; // drag/drop a reference to the object.
+public GameObject prefabEnemyPeaClone; // drag/drop a reference to the object.
 int randStep;
 	// Use this for initialization
 void Awake () {
 	int friendlyHealth = 5;
 	for (int i = 0; i<  friendlyHealth; i++){
-		GameObject newThing = (GameObject) GameObject.Instantiate(prefabPeaClone);
+		GameObject newThing = (GameObject) GameObject.Instantiate(prefabEnemyPeaClone);
 		newThing.transform.parent = gameObject.transform;
 		newThing.transform.position = new Vector3(gameObject.transform.position.x + (i*6),gameObject.transform.position.y,gameObject.transform.position.z);
 		//newThing.transform.position.x += (i * 1);	
