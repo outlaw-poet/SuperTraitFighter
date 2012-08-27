@@ -70,9 +70,9 @@ void Update () {
 				clone.transform.position = new Vector3(clone.transform.position.x + x, clone.transform.position.y + y, clone.transform.position.z + z);
 			}
 		}
-checkMovement();
-HandleActionInput();
-processMovement();
+	checkMovement();
+	HandleActionInput();
+	processMovement();
 		
 }
 
@@ -87,20 +87,29 @@ MoveVector = Vector3.zero;
 //jump
 
 }
-
+	
+	 void OnCollisionEnter(Collision collision) {
+        foreach (ContactPoint contact in collision.contacts) {
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
+        if (collision.relativeVelocity.magnitude > 2)
+            audio.Play();
+        
+    }
+	
 void HandleActionInput(){
-if(Input.GetButton("Jump")){
-jump();
-}
+	if(Input.GetButton("Jump")){
+	jump();
+	}
 }
 
 void processMovement(){
-//transform moveVector into world-space relative to character rotation
-MoveVector = transform.TransformDirection(MoveVector);
+	//transform moveVector into world-space relative to character rotation
+	MoveVector = transform.TransformDirection(MoveVector);
 
-//normalize moveVector if magnitude > 1
-if(MoveVector.magnitude > 1){
-MoveVector = Vector3.Normalize(MoveVector);
+	//normalize moveVector if magnitude > 1
+	if(MoveVector.magnitude > 1){
+	MoveVector = Vector3.Normalize(MoveVector);
 }
 
 //multiply moveVector by moveSpeed
