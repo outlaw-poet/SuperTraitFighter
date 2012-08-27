@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerPeas : MonoBehaviour {
+public class enemyPea : MonoBehaviour {
 
 
 public float Gravity = 21f; //downward force
@@ -19,7 +19,6 @@ int randStep;
 	// Use this for initialization
 void Awake () {
 	int friendlyHealth = 5;
-	CharacterController = gameObject.GetComponent("CharacterController") as CharacterController;
 	for (int i = 0; i<  friendlyHealth; i++){
 		GameObject newThing = (GameObject) GameObject.Instantiate(prefabPeaClone);
 		newThing.transform.parent = gameObject.transform;
@@ -32,7 +31,7 @@ void Awake () {
 // Update is called once per frame
 void Update () {
 		randStep++;		
-		if (randStep > 10){
+		if (randStep > 50){
 			randStep = 0;
 			int x = 0;
 			int y = 0;
@@ -71,22 +70,16 @@ processMovement();
 }
 
 void checkMovement(){
-//move l/r
-var deadZone = 0.1f;
-VerticalVelocity = MoveVector.y;
-MoveVector = Vector3.zero;
-	if(Input.GetAxis("Horizontal") > deadZone || Input.GetAxis("Horizontal") < -deadZone){
-	MoveVector += new Vector3(Input.GetAxis("Horizontal"),0,0);
-}
-//jump
-
+	VerticalVelocity = MoveVector.y;
+	MoveVector = Vector3.zero;
+	MoveVector += new Vector3(-1,0,0);
 }
 
 void HandleActionInput(){
-if(Input.GetButton("Jump")){
-jump();
-}
-}
+	if(Random.Range(1,20) == 1){
+	jump();
+		}
+	}
 
 void processMovement(){
 //transform moveVector into world-space relative to character rotation

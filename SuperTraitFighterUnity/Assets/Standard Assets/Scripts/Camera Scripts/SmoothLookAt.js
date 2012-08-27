@@ -8,9 +8,12 @@ function LateUpdate () {
 	if (target) {
 		if (smooth)
 		{
-			// Look at and dampen the rotation
-			var rotation = Quaternion.LookRotation(target.position - transform.position);
-			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+			if (transform.position.z > target.position.z + 1){
+				transform.position.z -= 0.1;
+			}
+			else if (transform.position.z < target.position.z -1){
+				transform.position.z += 0.1;
+			}
 		}
 		else
 		{
